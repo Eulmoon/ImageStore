@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<ImageStore.Models.Picture>
+
+@{
+    ViewBag.Title = "Добавление изображения";
+}
+<form asp-action="AddFile" asp-controller="AddFile" method="post" enctype="multipart/form-data">
+    <p>
+        <h3>Загрузть изображение</h3>
+        <input name="uploadedImage" type="file" class="form-control" />
+    </p>
+    <p>
+        <input type="submit" value="Загрузить" />
+    </p>
+</form>
+
