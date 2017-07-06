@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ImageStore.Models.Picture>
+@model IEnumerable<ImageStore.Models.Picture>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -22,11 +22,11 @@
 </head>
 <body>
     <center>
-    <h3>Мои изображении</h3>
+    <h3>Мои изображения</h3>
     @foreach (var f in Model.Reverse())
     {       
-        <a id="a1" href="@Url.Content(f.Path)">@Context.Request.Host@Url.Content(f.Path)</a>
-        <button onclick="copyToClipboard('#a1')">Get link to share</button>
+        <a id="@f.Id" href="@Url.Content(f.Path)">@Context.Request.Host@Url.Content(f.Path)</a>
+        <button onclick="copyToClipboard('#@f.Id')">Get link to share</button>
         <p><img src="@Url.Content(f.Path)"></p>
     }
     </center>
