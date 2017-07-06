@@ -6,13 +6,19 @@
 @{
     ViewBag.Title = "Добавление изображения";
 }
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="~/js/site.js"></script>
+
+
 <form asp-action="AddFile" asp-controller="AddFile" method="post" enctype="multipart/form-data">
+    
+        <h3>Загрузить изображение</h3>
+    <p id="ErrorText">Выберите</p>
+    <p><input id="uploadfile" name="uploadedImage" type="file" class="form-control" /></p>
+    <p><font color="grey" size="2"><i>Файл должен меньше 20МБ и в виде .jpg, .gif, .png, .jpeg.</i></font></p>
+    <p id="Maxsizeallow" hidden><font color="red">Файл слишком большой.</font></p>
+    <p id="mimetypeallow" hidden><font color="red">Разрешены загрузка только изображений (JPG, GIF, PNG, JPEG)</font></p>
     <p>
-        <h3>Загрузть изображение</h3>
-        <input name="uploadedImage" type="file" class="form-control" />
-    </p>
-    <p>
-        <input type="submit" value="Загрузить" />
+        <input onclick="ButtonFunction()" type="submit"  value="Загрузить" disabled/>
     </p>
 </form>
-
